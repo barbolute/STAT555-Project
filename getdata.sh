@@ -5,15 +5,23 @@
 set -ueo pipefail
 
 # This is the reference genome.
-REF=SRR.fa
+REFSRR=SRR.fa
+REFLRR=LRR.fa
 
 # The names for the index.
-IDX=SRR.fa
-
+IDXSRR=SRR.fa
+IDXLRR=LRR.fa
 
 # The files containint genomic coordinate.
-GTF_HUMAN=refs/22.gtf
-GTF_ERCC=refs/ERCC92.gtf
+GFFSRR=SRR.gff
+GFFLRR=LRR.fa
+
+fastq-dump --gzip --split-files -X 10000 -O reads SRR5001851
+fastq-dump --gzip --split-files -X 10000 -O reads SRR5001848
+fastq-dump --gzip --split-files -X 10000 -O reads SRR5001850
+fastq-dump --gzip --split-files -X 10000 -O reads SRR5001844
+fastq-dump --gzip --split-files -X 10000 -O reads SRR5001847
+fastq-dump --gzip --split-files -X 10000 -O reads SRR5001846
 
 # Download and unpack the data
 URL=ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/002/008/985/GCA_002008985.2_Tgut_diploid_1.0/GCA_002008985.2_Tgut_diploid_1.0_genomic.fna.gz
