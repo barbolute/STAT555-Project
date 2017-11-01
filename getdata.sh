@@ -1,4 +1,4 @@
-# A script that fully automates the RNA-seq analysis of the samples in this study.
+# This script that fully automates the downloading of all data and hisat2 indexing in this study.
 #
 
 # Stop on any error.
@@ -9,8 +9,8 @@ REFSRR=srr/SRR.fa*
 REFLRR=lrr/LRR.fa*
 
 # The names for the index.
-IDXSRR=SRR.fa
-IDXLRR=LRR.fa
+IDXSRR=srr/SRR.fa
+IDXLRR=lrr/LRR.fa
 
 # The files containint genomic coordinate.
 GFFSRR=srr/SRR.gff*
@@ -44,10 +44,7 @@ echo "*** Downloading: $URL4"
 curl $URL4 > lrr/LRR.gff.gz
 gunzip $GFFLRR
 
-
-
-
 # Build the indices
-echo "*** Building hisat indices: $IDX_ERCC and $IDX_HUMAN"
-hisat2-build $REF_ERCC $IDX_ERCC 1>runlog.txt 2> runlog.txt
-hisat2-build $REF_HUMAN $IDX_HUMAN 1>>runlog.txt 2>> runlog.txt
+echo "*** Building hisat indices: $IDXSRR and $IDXLRR"
+hisat2-build -p 14 $REFSRR $IDXSRR
+hisat2-build -p 14 $REFLRR $IDXLRR
