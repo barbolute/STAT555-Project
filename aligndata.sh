@@ -12,18 +12,58 @@ mkdir -p bam
 IDXSRR=srr/SRR.fa
 IDXLRR=lrr/LRR.fa
 
-for SAMPLE in HBR UHR;
-do
-    for REPLICATE in 1 2 3;
-    do
-        # Build the name of the files.
-        R1=reads/${SAMPLE}_${REPLICATE}_R1.fq
-        R2=reads/${SAMPLE}_${REPLICATE}_R2.fq
-        BAM=bam/${SAMPLE}_${REPLICATE}.bam
+R1=reads/SRR5001851_1.fastq.gz
+R2=reads/SRR5001851_2.fastq.gz
+BAM=bam/C1_SRR.bam
+hisat2 -p 16 -x $IDXSRR -1 $R1 -2 $R2 2>> $RUNLOG | samtools sort -l 1.6G -@16 > $BAM 2>> $RUNLOG
+samtools index -@16 $BAM
+BAM=bam/C1_LRR.bam
+hisat2 -p 16 -x $IDXLRR -1 $R1 -2 $R2 2>> $RUNLOG | samtools sort -l 1.6G -@16 > $BAM 2>> $RUNLOG
+samtools index -@16 $BAM
 
-        # Run the aligner.
-        echo "*** Aligning: $BAM"
-        hisat2 $IDX -1 $R1 -2 $R2 2>> $RUNLOG | samtools sort > $BAM 2>> $RUNLOG
-        samtools index $BAM
-    done
-done
+R1=reads/SRR5001848_1.fastq.gz
+R2=reads/SRR5001848_2.fastq.gz
+BAM=bam/C2_SRR.bam
+hisat2 -p 16 -x $IDXSRR -1 $R1 -2 $R2 2>> $RUNLOG | samtools sort -l 1.6G -@16 > $BAM 2>> $RUNLOG
+samtools index -@16 $BAM
+BAM=bam/C2_LRR.bam
+hisat2 -p 16 -x $IDXLRR -1 $R1 -2 $R2 2>> $RUNLOG | samtools sort -l 1.6G -@16 > $BAM 2>> $RUNLOG
+samtools index -@16 $BAM
+
+R1=reads/SRR5001850_1.fastq.gz
+R2=reads/SRR5001850_2.fastq.gz
+BAM=bam/C3_SRR.bam
+hisat2 -p 16 -x $IDXSRR -1 $R1 -2 $R2 2>> $RUNLOG | samtools sort -l 1.6G -@16 > $BAM 2>> $RUNLOG
+samtools index -@16 $BAM
+BAM=bam/C3_LRR.bam
+hisat2 -p 16 -x $IDXLRR -1 $R1 -2 $R2 2>> $RUNLOG | samtools sort -l 1.6G -@16 > $BAM 2>> $RUNLOG
+samtools index -@16 $BAM
+
+R1=reads/SRR5001844_1.fastq.gz
+R2=reads/SRR5001844_2.fastq.gz
+BAM=bam/T1_SRR.bam
+hisat2 -p 16 -x $IDXSRR -1 $R1 -2 $R2 2>> $RUNLOG | samtools sort -l 1.6G -@16 > $BAM 2>> $RUNLOG
+samtools index -@16 $BAM
+BAM=bam/T1_LRR.bam
+hisat2 -p 16 -x $IDXLRR -1 $R1 -2 $R2 2>> $RUNLOG | samtools sort -l 1.6G -@16 > $BAM 2>> $RUNLOG
+samtools index -@16 $BAM
+
+R1=reads/SRR5001847_1.fastq.gz
+R2=reads/SRR5001847_2.fastq.gz
+BAM=bam/T2_SRR.bam
+hisat2 -p 16 -x $IDXSRR -1 $R1 -2 $R2 2>> $RUNLOG | samtools sort -l 1.6G -@16 > $BAM 2>> $RUNLOG
+samtools index -@16 $BAM
+BAM=bam/T2_LRR.bam
+hisat2 -p 16 -x $IDXLRR -1 $R1 -2 $R2 2>> $RUNLOG | samtools sort -l 1.6G -@16 > $BAM 2>> $RUNLOG
+samtools index -@16 $BAM
+
+R1=reads/SRR5001846_1.fastq.gz
+R2=reads/SRR5001846_2.fastq.gz
+BAM=bam/T3_SRR.bam
+hisat2 -p 16 -x $IDXSRR -1 $R1 -2 $R2 2>> $RUNLOG | samtools sort -l 1.6G -@16 > $BAM 2>> $RUNLOG
+samtools index -@16 $BAM
+BAM=bam/T3_LRR.bam
+hisat2 -p 16 -x $IDXLRR -1 $R1 -2 $R2 2>> $RUNLOG | samtools sort -l 1.6G -@16 > $BAM 2>> $RUNLOG
+samtools index -@16 $BAM
+
+
