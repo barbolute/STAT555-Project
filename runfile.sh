@@ -7,7 +7,7 @@ curl -O https://raw.githubusercontent.com/barbolute/STAT555-Project/master/align
 
 
 # Automates the acquisition of the data.
-bash griffith-getdata.sh
+bash getdata.sh
 
 # Aligns the data to both the short read and long read reference.
-bash griffith-align.sh
+bash aligndata.sh
