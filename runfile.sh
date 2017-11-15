@@ -1,10 +1,5 @@
 # This script automates the use of the other scripts that compose of this project.
-#
 
-
-# curl -0 https://raw.githubusercontent.com/barbolute/STAT555-Project/master/runfile.sh
-#
-# bash griffith-algn.sh
 
 #Downloads the scripts needed to run this project.
 curl -O https://raw.githubusercontent.com/barbolute/STAT555-Project/master/getdata.sh
