@@ -114,12 +114,14 @@ samtools index -@16 $BAM
 
 #Before using trinity or cufflinks for assembly we need to merge and sort the aligned .bam files from out HiSat2 mapping to each LRR and SRR genome.
 #samtools merge and sort all the aligned LRR .bam files into one LRRmerged_sorted.bam
-samtools merge -@16 -O BAM bam/LRRmerged.bam bam/LRR_*.bam
+samtools merge -@16 -O BAM bam/LRRmerged.bam bam/LRR_brain.bam bam/LRR_muscle.bam bam/LRR_G226.bam bam/LRR_ZFTNA.bam bam/LRR_C1.bam bam/LRR_C2.bam
 samtools sort -l 1.8G -@16 -o bam/LRRmerged_sorted.bam bam/LRRmerged.bam
 
 #samtools merge and sort all aligned SRR .bam files into one SRRmerged_sorted.bam
-samtools merge -@16 -O BAM bam/SRRmerged.bam /bam/SRR_*.bam
+samtools merge -@16 -O BAM bam/SRRmerged.bam bam/LRR_brain.bam bam/LRR_muscle.bam bam/LRR_G226.bam bam/LRR_ZFTNA.bam bam/LRR_C1.bam bam/LRR_C2.bam
 samtools sort -l 1.8G -@16 -o bam/SRRmerged_sorted.bam bam/SRRmerged.bam
+
+ls
 
 #Move onto trinityassembly.sh
 
