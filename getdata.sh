@@ -31,16 +31,18 @@ fastq-dump --gzip --split-files -X 10000 -O reads SRR5001847
 fastq-dump --gzip --split-files -X 10000 -O reads SRR5001846
 
 #from brain for mapping based transcriptome assembly
-fastq-dump --gzip --split-files -X 10000 -O assemblydata SRR1619467
+fastq-dump --gzip --split-files -O assemblydata SRR1619467
 
 #from muscle tissue for mapping based transcriptome assembly
-fastq-dump --gzip --split-files -X 10000 -O assemblydata SRR2545947
+fastq-dump --gzip --split-files -O assemblydata SRR2545947
 
 #from G226 Zebra Finch Cell Line for mapping based transcriptome assembly
-fastq-dump --gzip --split-files -X 10000 -O assemblydata SRR1564481
+fastq-dump --gzip --split-files -O assemblydata SRR1564481
 
 #from ZFTNA Zebra Finch Cell Line for mapping based transcriptome assembly
-fastq-dump --gzip --split-files -X 10000 -O assemblydata SRR1564483
+fastq-dump --gzip --split-files -O assemblydata SRR1564483
+
+ls
 
 # Download and unpack the short read reference genome and gff file.
 URL1=ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/151/805/GCA_000151805.2_Taeniopygia_guttata-3.2.4/GCA_000151805.2_Taeniopygia_guttata-3.2.4_genomic.fna.gz
