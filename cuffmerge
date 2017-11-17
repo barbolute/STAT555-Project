@@ -1,0 +1,3 @@
+#cuffmerge commands
+
+cuffmerge -p 16 -s LRR.fa -o mergedassembly LRR_Cuff.gtf SRR.gtf
