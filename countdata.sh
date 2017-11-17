@@ -9,7 +9,23 @@ GTFLRR=lrr/LRR.gff
 RUNLOG=runlog.txt
 
 echo "*** Counting features with: $GTFSRR"
-featureCounts -F GTF -a $GTFSRR -g gene_name -o counts.txt  bam/SRR_C*.bam  bam/SRR_T*.bam 2>> $RUNLOG
+featureCounts -T 14 -a $GTFSRR -g gene_name -o LRR_Cuffcounts.txt  bam/LRR_C*.bam  bam/LRR_T*.bam 2>> $RUNLOG
+
+
+
+
+#simple counts
+cat LRR_Cuffcounts.txt | cut -f 1,7-12 > simpleLRR_Cuffcounts.txt
+
+
+
+
+
+
+
+
+
+
 
 echo "*** Generating simple counts."
 cat counts.txt | cut -f 1,7-12 > simple_counts.txt
